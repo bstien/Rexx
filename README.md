@@ -1,4 +1,4 @@
-# 🦖 Rex
+# 🦖 Rexx
 
 > _Simplifying_ regex in Swift
 
