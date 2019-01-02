@@ -44,6 +44,11 @@ if myString =~ pattern {
 
 
 ## Installation
+`Rexx` is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
+
+```ruby
+pod 'Rexx'
+```
 
 ## Usage
 You may either create an instance of `Rex`, use the operators or use the `String` extensions. Choose what you need depending on your usecase.
@@ -51,7 +56,6 @@ You may either create an instance of `Rex`, use the operators or use the `String
 If you only have a single string you need to match against a pattern, there exists two operators as well as two methods you can use.
 
 ### Using `Rex`
-
 An instance of `Rex` takes a pattern and an optional list of [`NSRegularExpression.Options`](https://developer.apple.com/documentation/foundation/nsregularexpression/options). This is the preferred way if you're going to match several strings against the same pattern, or if you need to provide options.
 
 `Rex` has two methods:
@@ -118,7 +122,6 @@ if "123456abcd" !=~ "^[a-zA-Z]" {
 ```
 
 ### String extensions
-
 The extensions are as easily used as the operators, but it has the benefit of not using custom operators. They let you either check for a match against a pattern, or fetch captured values from the pattern.
 
 The methods are pretty similar to those of `Rex`, but doesn't force you to create an instance of it.
@@ -127,7 +130,6 @@ The methods are pretty similar to those of `Rex`, but doesn't force you to creat
 - `match(pattern:) -> Match`
 
 #### Pattern matching
-
 Check if your string matches the pattern.
 
 ```swift
@@ -141,7 +143,6 @@ if "1234".matches("^\\d+$") {
 ```
 
 #### Capturing values
-
 Check if your string matches the pattern and capture values from capture groups.
 
 ```swift
