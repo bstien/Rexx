@@ -93,11 +93,11 @@ If you need to check if a string matches you're pattern, use the `=~` operator. 
 
 ```swift
 if "Hello, World!" =~ "^Hello" {
-	// 👌 The string starts with "Hello".
+    // 👌 The string starts with "Hello".
 }
 
 if "123456789" =~ "^\\d+$" {
-	// 👌 The string contains only digits.
+    // 👌 The string contains only digits.
 }
 ```
 
@@ -106,12 +106,12 @@ Sometimes you may want to check for negative matches. In these cases you may use
 
 ```swift
 if "Only letters and-symbols_here !()?\\" !=~ "\\d" {
-	// 👌 The string does not contain any digits.
+    // 👌 The string does not contain any digits.
 }
 
 
 if "123456abcd" !=~ "^[a-zA-Z]" {
-	// 👌 The string does start with any letters.
+    // 👌 The string does start with any letters.
 }
 ```
 
@@ -130,11 +130,11 @@ Check if your string matches the pattern.
 
 ```swift
 if "Hello, World!".matches("^Hello") {
-	// 👌 The string starts with "Hello".
+    // 👌 The string starts with "Hello".
 }
 
 if "1234".matches("^\\d+$") {
-	// 👌 The string contains only digits.
+    // 👌 The string contains only digits.
 }
 ```
 
@@ -149,12 +149,12 @@ let match = "Hello, World!".match(pattern)
 
 // Get the name from the first capture group.
 if let name = match.captures.first {
-	// 👌 The string matches, and we have the name!
+    // 👌 The string matches, and we have the name!
 }
 
 // Get the name from the capture group named 'name'.
 if let name = match.capture(withName: "name") {
-	// 👌 The string matches, and we have the name!
+    // 👌 The string matches, and we have the name!
 }
 ```
 
