@@ -5,29 +5,29 @@ let loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In la
 
 
 // 1. Count the total number of words.
-let allWords = try loremIpsum.match("(\\w+)")
+let allWords = loremIpsum.match("(\\w+)")
 print("Number of words:", allWords.captures.count)
 
 // 2. Find all words longer than 5 characters.
-let longWords = try loremIpsum.match("(\\w{5,})")
+let longWords = loremIpsum.match("(\\w{5,})")
 print("Number of long words:", longWords.captures.count)
 
 
 // 3. Find all lowercased words longer than 5 characters.
-let longLowercasedWords = try loremIpsum.match("\\b([a-z]{5,})\\b")
+let longLowercasedWords = loremIpsum.match("\\b([a-z]{5,})\\b")
 print("Number of long, lowercased words:", longLowercasedWords.captures.count)
 
 
 // 4. Find all words starting with an uppercased character.
-let uppercasedWords = try loremIpsum.match("([A-Z]\\w+)")
+let uppercasedWords = loremIpsum.match("([A-Z]\\w+)")
 print("Number of uppercased words:", uppercasedWords.captures.count)
 
 
 // 5. Find the last sentence.
-let lastSentence = try loremIpsum.match(".*\\. (.*)$")
+let lastSentence = loremIpsum.match(".*\\. (.*)$")
 print("The last sentence in the text is:", lastSentence.captures.first!)
 
 
 // 6. Find all words which contains the the letter sequence 'is', in some form.
-let wordsContainingIS = try loremIpsum.match("(\\w*is\\w*)")
+let wordsContainingIS = loremIpsum.match("(\\w*is\\w*)")
 print("Number of words containing the sequence 'is':", wordsContainingIS.captures.count)

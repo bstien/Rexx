@@ -11,8 +11,12 @@ public extension String {
         }
     }
 
-    public func match(_ pattern: String) throws -> Match  {
-        return try Rex(pattern: pattern).match(self)
+    public func match(_ pattern: String) -> Match  {
+        do {
+            return try Rex(pattern: pattern).match(self)
+        } catch {
+            return Match(string: self, rawMatches: [])
+        }
     }
 }
 
