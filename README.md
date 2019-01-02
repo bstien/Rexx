@@ -59,7 +59,9 @@ An instance of `Rex` takes a pattern and an optional list of [`NSRegularExpressi
 - `matches(string:) -> Bool`
 - `match(string:options:) -> Match`
 
-The former only checks if the pattern is a match against the provided string, while the latter let's you also fetch values from capture groups within the pattern. The result of the match is provided through [`Match`](https://github.com/bstien/Rex/blob/master/Source/Match.swift). You may also fetch values from named capture groups easily!😄
+The former only checks if the pattern is a match against the provided string, while the latter let's you also fetch values from capture groups within the pattern. The result of the match is provided through [`Match`](https://github.com/bstien/Rex/blob/master/Source/Match.swift). 
+
+If you're on iOS 11+ you may also fetch values from named capture groups easily!😄 This is not available in earlier versions, due to [`range(withName:)`](https://developer.apple.com/documentation/foundation/nstextcheckingresult/2915200-range) being introduced in iOS 11.
 
 ```swift
 // 1. Define your pattern. Match against a string starting with "Hello, " and ending with "!". Capture whatever name/word we're saying hello to.
@@ -77,7 +79,7 @@ if let name = match.captures.first {
     print("We said hello to", name)
 }
 
-// 4.2 Fetch the name captured within the capture group, which is a named capture group.
+// 4.2 iOS 11+ only! Fetch the name captured within the capture group, which is a named capture group.
 if let name = match.capture(withName: "name") {
     print("We said hello to", name)
 }
@@ -152,7 +154,7 @@ if let name = match.captures.first {
     // 👌 The string matches, and we have the name!
 }
 
-// Get the name from the capture group named 'name'.
+// iOS 11+ only! Get the name from the capture group named 'name'.
 if let name = match.capture(withName: "name") {
     // 👌 The string matches, and we have the name!
 }

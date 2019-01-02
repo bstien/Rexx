@@ -37,6 +37,7 @@ public struct Match {
         return captures.count > 0
     }
 
+    @available(iOS 11.0, *)
     public func capture(withName name: String) -> String? {
         let notFoundRange = NSMakeRange(NSNotFound, 0)
         return rawMatches.map { $0.range(withName: name) }.filter { !NSEqualRanges(notFoundRange, $0) }.first.map { string.substring(with: $0) }
