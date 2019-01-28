@@ -89,10 +89,10 @@ if let name = match.capture(withName: "name") {
 }
 ```
 
-### Operators: `=~` & `!=~`
+### Operators: `=~` & `!~`
 If you only need to check if a string matches a pattern, the operators are probably the easiest way to use `Rex`. Just place your string on the **left side** of the operator and the pattern on the **right side** and you're good to go!
 
-**NB!** Please note that if your pattern is invalid Swift regex, these operators will return `false` for `=~` and `true` for `!=~`. Since these cases are _haaard_ to debug, but I would advise you to check your pattern in i.e. [RegExr](https://regexr.com/), an online tool to test patterns.
+**NB!** Please note that if your pattern is invalid Swift regex, these operators will return `false` for `=~` and `true` for `!~`. Since these cases are _haaard_ to debug, but I would advise you to check your pattern in i.e. [RegExr](https://regexr.com/), an online tool to test patterns.
 
 #### Pattern matching
 If you need to check if a string matches you're pattern, use the `=~` operator. It returns `true` if the string matches the pattern.
@@ -108,15 +108,15 @@ if "123456789" =~ "^\\d+$" {
 ```
 
 #### Negated pattern matching
-Sometimes you may want to check for negative matches. In these cases you may use the operator `!=~`, which returns `true` if the string **does not** match the pattern.
+Sometimes you may want to check for negative matches. In these cases you may use the operator `!~`, which returns `true` if the string **does not** match the pattern.
 
 ```swift
-if "Only letters and-symbols_here !()?\\" !=~ "\\d" {
+if "Only letters and-symbols_here !()?\\" !~ "\\d" {
     // 👌 The string does not contain any digits.
 }
 
 
-if "123456abcd" !=~ "^[a-zA-Z]" {
+if "123456abcd" !~ "^[a-zA-Z]" {
     // 👌 The string does start with any letters.
 }
 ```

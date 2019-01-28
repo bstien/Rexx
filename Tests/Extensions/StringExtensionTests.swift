@@ -43,21 +43,21 @@ class StringExtensionTests: XCTestCase {
         XCTAssertFalse("lowercased" =~ "^[A-Z]$")
     }
 
-    // MARK: - Negated infix operator: !=~
+    // MARK: - Negated infix operator: !~
 
     func testSuccessfulInfixNoMatch() {
         // Verify that string does not contain characters.
-        XCTAssertTrue("123" !=~ "[a-zA-Z]")
+        XCTAssertTrue("123" !~ "[a-zA-Z]")
 
         // Verify that string does not start with letter 'a' or 'b'.
-        XCTAssertTrue("Some string" !=~ "^(a|b)")
+        XCTAssertTrue("Some string" !~ "^(a|b)")
     }
 
     func testUnsuccessfulInfixNoMatch() {
         // Verify that string does not contain multiple digits.
-        XCTAssertFalse("123" !=~ "[0-9]+")
+        XCTAssertFalse("123" !~ "[0-9]+")
 
         // Verify that string does not start with letter 'a' or 'b'.
-        XCTAssertFalse("abc" !=~ "^(a|b)")
+        XCTAssertFalse("abc" !~ "^(a|b)")
     }
 }
